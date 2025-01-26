@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -17,6 +18,8 @@ body {
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-list {
@@ -106,8 +109,7 @@ nav img {
     border: none;
     border-radius: 1rem;
     cursor: pointer;
-}
-
+} 
 /* ----------container------------ */
 .container {
     height: 50vh;
@@ -176,10 +178,11 @@ nav img {
     height: 3rem;
     width: 100vw;
     text-align: center;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     color: #fff;
     background-color: #1f2c52;
 }
+
 /* ----------Media Queries for Mobile S---------- */
 @media screen and (max-width: 320px) {
     .navbar {
@@ -212,7 +215,7 @@ nav img {
 
     .container {
         width: 320px;
-        height: 550px;
+        height: 650px;
     }
 
     .features-sec {
@@ -227,7 +230,7 @@ nav img {
 
     .container h2 {
         margin-top: 2rem;
-        margin-bottom: 100px;
+        margin-bottom: 150px;
     }
 
     .foot1 {
@@ -258,8 +261,9 @@ nav img {
         width: 320px;
     }
 }
+
 /* ----------Media Queries for Mobile M---------- */
-@media screen and (min-width: 375px) and (max-width: 455px){
+@media screen and (min-width: 321px) and (max-width: 375px) {
     .navbar {
         margin: 0;
         padding: 0;
@@ -302,7 +306,6 @@ nav img {
     }
 
     .features-sec .feature {
-        width: 20rem;
         height: 14rem;
     }
 
@@ -339,8 +342,9 @@ nav img {
         width: 375px;
     }
 }
+
 /* ----------Media Queries for Mobile L---------- */
-@media screen and (min-width: 321px) and (max-width: 455px) {
+@media screen and (min-width: 375px) and (max-width: 455px) {
     .navbar {
         margin: 0;
         padding: 0;
@@ -380,7 +384,7 @@ nav img {
     .features-sec {
         flex-direction: column;
         gap: 2rem;
-        padding-left: 10px;
+        margin-left: 1rem;
     }
 
     .features-sec .feature {
@@ -422,6 +426,7 @@ nav img {
         width: 455px;
     }
 }
+
 /* ----------Media queries for Tablet----------- */
 @media screen and (min-width: 456px) and (max-width: 780px) {
     .navbar {
@@ -500,6 +505,7 @@ nav img {
         width: 780px;
     }
 }
+
 /* ----------Media queries for laptop--------- */
 @media screen and (min-width: 781px) and (max-width: 1024px) {
     .navbar {
@@ -512,6 +518,9 @@ nav img {
         justify-content: space-around;
         margin: 0;
         gap: 0;
+    }
+    .nav-list a{
+        font-size: 1rem;
     }
 
     .hero-sec {
