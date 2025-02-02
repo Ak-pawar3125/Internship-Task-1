@@ -4,82 +4,124 @@
     font-family: 'Times New Roman', Times, serif;
     box-sizing: border-box;
 }
-
 body {
     background-color: #abb4db;
+    overflow-x: hidden;
 }
 
 /* ----------Navbar--------- */
-.navbar {
-    height: 10vh;
-    width: 100vw;
-    background-color: #293351;
+nav{
+    background-color: #1f2c52;
+    height: 5rem;
+    width: 100%;
+}
+nav ul{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
 }
-
-.nav-list {
+nav li{
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    margin-right: 10rem;
-    gap: 3rem;
+    padding: 0 30px;
+    transition: transform 0.3s ease-in-out;
 }
-
-nav img {
-    padding-left: 5rem;
-    height: 4rem;
-}
-
-.nav-list a {
+nav a{
     color: #fff;
     text-decoration: none;
-    padding-right: 2rem;
-    display: block;
     font-size: 1.5rem;
-    transition: transform 0.3s ease, opacity 0.3s ease;
 }
+nav li:hover{
+    transform: scale(1.2);
 
-.nav-list li {
+}
+nav img{
+    height: 4rem;
+    margin-top: 7px;
+    margin-right: auto;
+    padding-left: 10px;
+}
+nav i{
+    color: #fff;
+    height: 50px;
+    width: 5rem;
+}
+nav .menu{
+    height: 2rem;
+    width: 5rem;
+    fill: #fff;
+    display: none;
+}
+.dropdown {
     position: relative;
+    display: inline-block;
 }
 
-.nav-list a:hover {
-    transform: scale(1.1);
-}
-
+/* Hidden dropdown menu */
 .dropdown-menu {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #47597e;
-    list-style-type: none;
-    margin: 0;
+    background: rgba(255, 255, 255, 0.2); /* Light transparent background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
     padding: 0;
-    display: none;
-    min-width: 150px;
-    z-index: 1;
+    margin: 0;
 }
 
-.dropdown-menu li a {
-    padding: 10px;
-    color: white;
-}
-
+/* Hover pe menu show karna */
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+
+/* Dropdown items styling */
+.dropdown-menu li {
+    padding: 10px 20px;
+}
+.dropdown-menu a{
+    font-size: 1rem;
+    color: #2a2929;
+}
+/*---------------SideBar---------*/
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: right 0.3s ease-in-out;
+    height: 70vh;
+    overflow-y: auto;
+    width: 250px;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.2); /* Light transparent background */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+}
+.sidebar .cross{
+    height: 2rem;
+    width: 3rem;
+    margin: 1rem;
+}
+
+.sidebar a{
+    color: #000 !important;
+    font-size: 1.5rem;
+    display: block;
+    padding: 10px 20px;
 }
 
 /* ----------Hero-Section--------- */
 
 .hero-sec {
     height: 60vh;
-    width: 100vw;
     background: linear-gradient(135deg, #6375c7, #887ae0, #bc8bdf, #897ba7);
     display: flex;
     flex-direction: column;
@@ -113,7 +155,7 @@ nav img {
 /* ----------container------------ */
 .container {
     height: 50vh;
-    width: 100vw;
+    width: 100%;
 }
 
 .container h2 {
@@ -123,7 +165,7 @@ nav img {
 
 .features-sec {
     height: 50vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +193,7 @@ nav img {
 
 .foot1 {
     height: 15rem;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,7 +218,7 @@ nav img {
 
 .foot2 {
     height: 3rem;
-    width: 100vw;
+    width: 100%;
     text-align: center;
     padding-top: 1rem;
     color: #fff;
@@ -185,36 +227,36 @@ nav img {
 
 /* ----------Media Queries for Mobile S---------- */
 @media screen and (max-width: 320px) {
-    .navbar {
+    nav {
         margin: 0;
         padding: 0;
-        width: 320px;
     }
 
-    .navbar img {
-        height: 2rem;
-        width: 5rem;
+    nav img {
+        height: 3rem;
+        width: 7rem;
     }
-
-    .nav-list {
+    nav .menu{
+        display: block;
+    }
+    .hero-sec {
+    }
+    nav li{
         display: none;
     }
-
-    .navbar a {
-        font-size: small;
+    .sidebar li{
+        display: block;
     }
-
-    .hero-sec {
-        width: 320px;
+    .dropdown {
+        display: none;
     }
-
     .hero-sec p {
         font-size: 0.87rem;
         text-align: center;
+        margin-bottom: 10px;
     }
 
     .container {
-        width: 320px;
         height: 650px;
     }
 
@@ -235,7 +277,6 @@ nav img {
 
     .foot1 {
         height: auto;
-        width: 320px;
         flex-direction: column;
         gap: 2rem;
         text-align: center;
@@ -258,36 +299,32 @@ nav img {
     .foot2 {
         font-size: 0.8rem;
         padding-top: 1rem;
-        width: 320px;
     }
 }
 
 /* ----------Media Queries for Mobile M---------- */
-@media screen and (min-width: 321px) and (max-width: 375px) {
-    .navbar {
+@media screen and (min-width: 321px) and (max-width: 374px) {
+    nav {
         margin: 0;
         padding: 0;
-        width: 375px;
+        
     }
 
-    .navbar img {
-        padding-left: 0;
-        height: 2rem;
-        width: 5rem;
+    nav img {
+        height: 3rem;
+        width: 7rem;
     }
-
-    .nav-list {
-        justify-content: space-around;
-        margin: 0;
-        gap: 0;
+    nav .menu{
+        display: block;
     }
-
-    .navbar a {
-        font-size: small;
+    nav li{
+        display: none;
     }
-
-    .hero-sec {
-        width: 375px;
+    .sidebar li{
+        display: block;
+    }
+    .dropdown {
+        display: none;
     }
 
     .hero-sec p {
@@ -296,13 +333,14 @@ nav img {
     }
 
     .container {
-        width: 375px;
         height: 550px;
+        
     }
 
     .features-sec {
         flex-direction: column;
         gap: 2rem;
+        
     }
 
     .features-sec .feature {
@@ -316,7 +354,6 @@ nav img {
 
     .foot1 {
         height: auto;
-        width: 375px;
         flex-direction: column;
         gap: 2rem;
         text-align: center;
@@ -339,34 +376,35 @@ nav img {
     .foot2 {
         font-size: 0.8rem;
         padding-top: 1rem;
-        width: 375px;
     }
+    
 }
 
 /* ----------Media Queries for Mobile L---------- */
 @media screen and (min-width: 375px) and (max-width: 455px) {
-    .navbar {
+    nav {
         margin: 0;
         padding: 0;
         width: 455px;
     }
 
-    .navbar img {
-        padding-left: 0;
-        height: 2rem;
-        width: 5rem;
+    nav img {
+        height: 3rem;
+        width: 7rem;
+    }
+    nav .menu{
+        display: block;
     }
 
-    .nav-list {
-        justify-content: space-around;
-        margin: 0;
-        gap: 0;
+    nav li{
+        display: none;
     }
-
-    .navbar a {
-        font-size: small;
+    .sidebar li{
+        display: block;
     }
-
+    .dropdown {
+        display: none;
+    }
     .hero-sec {
         width: 455px;
     }
@@ -384,7 +422,6 @@ nav img {
     .features-sec {
         flex-direction: column;
         gap: 2rem;
-        margin-left: 1rem;
     }
 
     .features-sec .feature {
@@ -429,13 +466,13 @@ nav img {
 
 /* ----------Media queries for Tablet----------- */
 @media screen and (min-width: 456px) and (max-width: 780px) {
-    .navbar {
+    nav {
         margin: 0;
         padding: 0;
         width: 780px;
     }
 
-    .navbar img {
+    nav img {
         padding-left: 0;
         height: 3rem;
         width: 10rem;
@@ -508,7 +545,7 @@ nav img {
 
 /* ----------Media queries for laptop--------- */
 @media screen and (min-width: 781px) and (max-width: 1024px) {
-    .navbar {
+    nav {
         margin: 0;
         padding: 0;
         width: 1030px;
